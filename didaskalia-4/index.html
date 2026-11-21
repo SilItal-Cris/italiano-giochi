@@ -5,37 +5,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Verbi in -IRE | 4η Διδασκαλία</title>
+
   <style>
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f5f1ff;
       color: #252447;
     }
+
     header {
       background: linear-gradient(120deg, #6542db, #b458ce);
       color: white;
       text-align: center;
       padding: 55px 20px;
     }
-    header h1 { font-size: 38px; margin: 0 0 15px; }
-    header p { font-size: 18px; margin: 0; }
-    main { max-width: 1140px; margin: 40px auto; padding: 0 20px; }
+
+    header h1 {
+      font-size: 38px;
+      margin: 0 0 15px;
+    }
+
+    header p {
+      font-size: 18px;
+      margin: 8px 0;
+    }
+
+    main {
+      max-width: 1140px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
     h2 { color: #6542db; }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
+
     .card {
       background: white;
       border-radius: 24px;
       padding: 30px;
       box-shadow: 0 8px 24px #30205a12;
     }
+
     .card h3 { margin-top: 0; }
-    .card p { line-height: 1.6; min-height: 60px; }
+
+    .card p {
+      line-height: 1.6;
+      min-height: 60px;
+    }
+
     .button {
       display: inline-block;
       background: #6542db;
@@ -45,13 +70,22 @@
       border-radius: 14px;
       font-weight: bold;
     }
+
     .button:hover { background: #5030ba; }
+
+    .button.disabled {
+      background: #aaa4ba;
+      cursor: not-allowed;
+    }
+
     @media (max-width: 800px) {
       .grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
+
 <body>
+
   <header>
     <h1>🇮🇹 Verbi regolari in -IRE</h1>
     <p>4η Διδασκαλία – Μαθαίνουμε ιταλικά παίζοντας!</p>
@@ -60,43 +94,67 @@
 
   <main>
     <h2>🎮 Τα 6 διαδραστικά μας παιχνίδια</h2>
+
     <div class="grid">
+
+      <!-- 1. ASCOLTA E RIPETI -->
       <div class="card">
         <h3>🎤 Ascolta e ripeti!</h3>
         <p>Άκουσε, επανάλαβε και εξασκήσου στην προφορά!</p>
-        <a class="button" href="Ascolta_e_ripeti_IRE.html">▶ Παίξε τώρα</a>
+        <a class="button" href="Ascolta_e_ripeti_IRE.html">
+          ▶ Παίξε τώρα
+        </a>
       </div>
 
+      <!-- 2. COSTRUISCI LE FRASI -->
       <div class="card">
         <h3>🧩 Costruisci le frasi</h3>
         <p>Βάλε τις λέξεις στη σωστή σειρά!</p>
-        <a class="button" href="Costruisci_le_frasi_IRE.html">▶ Παίξε τώρα</a>
+        <span class="button disabled">
+          Σύντομα διαθέσιμο
+        </span>
       </div>
 
+      <!-- 3. GLOSSARIO -->
       <div class="card">
         <h3>📖 Glossario</h3>
         <p>Ανακάλυψε τη σημασία των ρημάτων!</p>
-        <a class="button" href="Glossario_IRE.html">▶ Παίξε τώρα</a>
+        <a class="button"
+           href="Glossario%20in%20-ire%20%28come%20aprire%29.html">
+          ▶ Παίξε τώρα
+        </a>
       </div>
 
+      <!-- 4. PARLA -->
       <div class="card">
         <h3>🎬 Parla con Maestra Crissa!</h3>
         <p>Δες τα βίντεο, διάλεξε απαντήσεις και μίλησε ιταλικά!</p>
-        <a class="button" href="Parla%20in%20-ire%20%28come%20aprire%29.html">▶ Παίξε τώρα</a>
+        <a class="button" href="Parla_IRE.html">
+          ▶ Παίξε τώρα
+        </a>
       </div>
 
+      <!-- 5. SERPENTE -->
       <div class="card">
         <h3>🐍 Serpente</h3>
         <p>Παίξε με τα ρήματα σε -IRE!</p>
-        <a class="button" href="Serpente_IRE.html">▶ Παίξε τώρα</a>
+        <a class="button"
+           href="Serpente%20in%20-ire%20%28come%20aprire%29.html">
+          ▶ Παίξε τώρα
+        </a>
       </div>
 
+      <!-- 6. ORTOGRAFIA -->
       <div class="card">
         <h3>✏️ Ortografia</h3>
         <p>Εξασκήσου στη σωστή γραφή των ρημάτων!</p>
-        <a class="button" href="Ortografia_IRE.html">▶ Παίξε τώρα</a>
+        <span class="button disabled">
+          Σύντομα διαθέσιμο
+        </span>
       </div>
+
     </div>
   </main>
+
 </body>
 </html>
