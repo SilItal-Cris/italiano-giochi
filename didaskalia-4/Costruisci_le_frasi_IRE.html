@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Costruisci le frasi | Verbi in -IRE</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f1ff;
+  color: #252447;
+}
+header {
+  background: linear-gradient(120deg,#6542db,#b458ce);
+  color: white;
+  text-align: center;
+  padding: 38px 15px;
+}
+header h1 { margin: 0 0 12px; font-size: 34px; }
+header p { margin: 5px; }
+main { max-width: 780px; margin: 30px auto; padding: 0 16px; }
+.panel {
+  background: white;
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 8px 24px #30205a12;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-weight: bold;
+  color: #6542db;
+}
+.progress {
+  height: 12px;
+  background: #eee9fa;
+  border-radius: 20px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+#bar {
+  width: 10%;
+  height: 100%;
+  background: #6542db;
+  transition: width .3s;
+}
+h2 { color: #6542db; }
+.hint { color: #66617e; line-height: 1.5; }
+.area {
+  min-height: 95px;
+  border: 2px dashed #c7b8f5;
+  border-radius: 16px;
+  padding: 14px;
+  margin: 18px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+.word {
+  background: #eee8ff;
+  color: #39247d;
+  border: 2px solid #d9cbff;
+  border-radius: 12px;
+  padding: 13px 17px;
+  font-size: 19px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.word:hover { background: #ddd0ff; }
+.word:focus-visible, button:focus-visible {
+  outline: 3px solid #f2a900;
+  outline-offset: 3px;
+}
+button.action {
+  border: none;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.primary { background: #6542db; color: white; }
+.secondary { background: #eee9fa; color: #39247d; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; }
+#feedback {
+  min-height: 28px;
+  margin: 20px 0;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.correct { color: #177343; }
+.wrong { color: #b23535; }
+#next { display: none; }
+#finish { display: none; text-align: center; }
+@media(max-width:600px) {
+  .panel { padding: 18px; }
+  header h1 { font-size: 27px; }
+  .word { font-size: 17px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🧩 Costruisci le frasi!</h1>
+  <p>4η Διδασκαλία – Verbi in -IRE</p>
+  <p>Come APRIRE – senza -isc-</p>
+</header>
+
+<main>
+  <section class="panel" id="game">
+    <div class="top">
+      <span id="counter">Πρόταση 1 / 10</span>
+      <span id="score">Βαθμοί: 0</span>
+    </div>
+    <div class="progress"><div id="bar"></div></div>
+
+    <h2>Βάλε τις λέξεις στη σωστή σειρά!</h2>
+    <p class="hint" id="translation"></p>
+    <p class="hint">Πάτησε τις λέξεις μία μία.
+      Αν κάνεις λάθος, μπορείς να τις αφαιρέσεις.</p>
+
+    <div class="area" id="answer"
+         aria-label="Η πρότασή σου"></div>
+
+    <div class="words" id="words"
+         aria-label="Διαθέσιμες λέξεις"></div>
+
+    <div class="actions">
+      <button class="action primary" id="check"
+              onclick="checkAnswer()">Έλεγχος ✓</button>
+      <button class="action secondary" id="clear"
+              onclick="clearAnswer()">Καθαρισμός ↺</button>
+    </div>
+
+    <div id="feedback" role="status" aria-live="polite"></div>
+
+    <button class="action primary" id="next"
+            onclick="nextQuestion()">Επόμενη πρόταση →</button>
+  </section>
+
+  <section class="panel" id="finish">
+    <h2>🎉 Bravissimo!</h2>
+    <p>Ολοκλήρωσες το παιχνίδι!</p>
+    <h2 id="finalScore"></h2>
+    <p id="finalMessage"></p>
+    <button class="action primary" onclick="restart()">
+      Παίξε ξανά ↺
+    </button>
+    <p><a href="index.html">← Επιστροφή στα παιχνίδια</a></p>
+  </section>
+</main>
+
+<script>
+const questions = [
+  {
+    words: ["Marco", "apre", "la", "porta."],
+    greek: "Ο Μάρκο ανοίγει την πόρτα."
+  },
+  {
+    words: ["La", "mamma", "copre", "il", "bambino."],
+    greek: "Η μαμά σκεπάζει το παιδί."
+  },
+  {
+    words: ["Il", "gatto", "dorme", "sul", "divano."],
+    greek: "Η γάτα κοιμάται στον καναπέ."
+  },
+  {
+    words: ["Anna", "offre", "un", "gelato", "a", "Luca."],
+    greek: "Η Άννα προσφέρει ένα παγωτό στον Λούκα."
+  },
+  {
+    words: ["Noi", "partiamo", "per", "Roma."],
+    greek: "Εμείς αναχωρούμε για τη Ρώμη."
+  },
+  {
+    words: ["I", "bambini", "scoprono", "un", "tesoro."],
+    greek: "Τα παιδιά ανακαλύπτουν έναν θησαυρό."
+  },
+  {
+    words: ["Gli", "alunni", "seguono", "la", "maestra."],
+    greek: "Οι μαθητές ακολουθούν τη δασκάλα."
+  },
+  {
+    words: ["Io", "sento", "una", "musica", "bella."],
+    greek: "Εγώ ακούω μια όμορφη μουσική."
+  },
+  {
+    words: ["Il", "cameriere", "serve", "la", "pizza."],
+    greek: "Ο σερβιτόρος σερβίρει την πίτσα."
+  },
+  {
+    words: ["Giulia", "veste", "la", "bambola."],
+    greek: "Η Τζούλια ντύνει την κούκλα."
+  }
+];
+
+let index = 0;
+let score = 0;
+let selected = [];
+let available = [];
+let solved = false;
+
+const el = id => document.getElementById(id);
+
+function shuffle(items) {
+  const result = [...items];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+function loadQuestion() {
+  selected = [];
+  solved = false;
+  available = shuffle(
+    questions[index].words.map((word, id) => ({word, id}))
+  );
+
+  el("counter").textContent =
+    `Πρόταση ${index + 1} / ${questions.length}`;
+  el("score").textContent = `Βαθμοί: ${score}`;
+  el("bar").style.width =
+    `${((index + 1) / questions.length) * 100}%`;
+  el("translation").textContent =
+    "🇬🇷 " + questions[index].greek;
+  el("feedback").textContent = "";
+  el("feedback").className = "";
+  el("check").disabled = false;
+  el("clear").disabled = false;
+  el("next").style.display = "none";
+  render();
+}
+
+function render() {
+  el("answer").innerHTML = "";
+  el("words").innerHTML = "";
+
+  selected.forEach(item => {
+    const btn = document.createElement("button");
+    btn.className = "word";
+    btn.textContent = item.word;
+    btn.disabled = solved;
+    btn.onclick = () => {
+      selected = selected.filter(x => x.id !== item.id);
+      available.push(item);
+      render();
+    };
+    el("answer").appendChild(btn);
+  });
+
+  available.forEach(item => {
+    const btn = document.createElement("button");
+    btn.className = "word";
+    btn.textContent = item.word;
+    btn.disabled = solved;
+    btn.onclick = () => {
+      available = available.filter(x => x.id !== item.id);
+      selected.push(item);
+      render();
+    };
+    el("words").appendChild(btn);
+  });
+}
+
+function clearAnswer() {
+  if (solved) return;
+  available = shuffle([...available, ...selected]);
+  selected = [];
+  render();
+  el("feedback").textContent = "";
+}
+
+function checkAnswer() {
+  if (solved) return;
+
+  const expected = questions[index].words.join(" ");
+  const actual = selected.map(x => x.word).join(" ");
+
+  if (actual === expected) {
+    solved = true;
+    score++;
+    el("score").textContent = `Βαθμοί: ${score}`;
+    el("feedback").textContent =
+      "✅ Bravissimo! Η πρόταση είναι σωστή!";
+    el("feedback").className = "correct";
+    el("check").disabled = true;
+    el("clear").disabled = true;
+    el("next").style.display = "inline-block";
+    el("next").textContent =
+      index === questions.length - 1
+      ? "Δες το αποτέλεσμα →"
+      : "Επόμενη πρόταση →";
+    render();
+  } else {
+    el("feedback").textContent =
+      "❌ Prova ancora! Δοκίμασε ξανά.";
+    el("feedback").className = "wrong";
+  }
+}
+
+function nextQuestion() {
+  if (!solved) return;
+  index++;
+  if (index < questions.length) {
+    loadQuestion();
+  } else {
+    el("game").style.display = "none";
+    el("finish").style.display = "block";
+    el("finalScore").textContent =
+      `Βαθμολογία: ${score} / ${questions.length}`;
+    el("finalMessage").textContent =
+      "Hai costruito tutte le frasi! Complimenti!";
+  }
+}
+
+function restart() {
+  index = 0;
+  score = 0;
+  el("game").style.display = "block";
+  el("finish").style.display = "none";
+  loadQuestion();
+}
+
+loadQuestion();
+</script>
+</body>
+</html>
