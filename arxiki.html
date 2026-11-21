@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Μαθαίνω με τη maestra Crissa!</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff9f2;
+  color: #333;
+  text-align: center;
+}
+
+header {
+  padding: 35px 20px 30px;
+  background: linear-gradient(135deg, #e8f6e8, #fff0df);
+}
+
+h1 {
+  color: #287747;
+  font-size: clamp(28px, 5vw, 44px);
+  margin: 0 0 15px;
+}
+
+.intro {
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.hero {
+  display: block;
+  width: 100%;
+  max-width: 850px;
+  height: auto;
+  margin: 25px auto 0;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+}
+
+main {
+  max-width: 1150px;
+  margin: auto;
+  padding: 35px 20px 50px;
+}
+
+.section-title {
+  font-size: 29px;
+  color: #287747;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.card {
+  background: white;
+  padding: 28px 22px;
+  border-radius: 20px;
+  border-top: 7px solid #38945c;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card:nth-child(3n+2) {
+  border-top-color: #e85b51;
+}
+
+.card:nth-child(3n) {
+  border-top-color: #e7ad35;
+}
+
+.card h2 {
+  font-size: 21px;
+  line-height: 1.5;
+  margin: 10px 0 20px;
+}
+
+.number {
+  font-size: 34px;
+  font-weight: bold;
+  color: #287747;
+}
+
+.button {
+  display: inline-block;
+  padding: 14px 25px;
+  border-radius: 12px;
+  background: #287747;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #19532f;
+}
+
+.coming-soon {
+  background: #eeeeee;
+  color: #666;
+  padding: 14px 25px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+footer {
+  padding: 25px;
+  background: #e8f6e8;
+  color: #287747;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 25px 15px;
+  }
+
+  .intro {
+    font-size: 17px;
+  }
+
+  .card h2 {
+    font-size: 19px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Μαθαίνω με τη maestra Crissa!</h1>
+
+  <p class="intro">
+    Μαθαίνουμε ιταλικά παίζοντας!<br>
+    Διάλεξε μια ενότητα και ξεκίνα!
+  </p>
+
+  <img
+    class="hero"
+    src="maestra-crissa.png"
+    alt="Η maestra Crissa στην τάξη των Ιταλικών">
+</header>
+
+<main>
+
+<h2 class="section-title">Οι διδασκαλίες μας</h2>
+
+<div class="grid">
+
+  <section class="card">
+    <div class="number">1</div>
+    <h2>
+      Πρώτη Συζυγία - Ομαλά ρήματα σε -ARE
+    </h2>
+    <a class="button" href="index.html">
+      ▶ Ξεκίνα!
+    </a>
+  </section>
+
+  <section class="card">
+    <div class="number">2</div>
+    <h2>
+      Πρώτη Συζυγία - Ομαλά ρήματα σε
+      -CARE, -GARE και -IARE
+    </h2>
+    <a class="button" href="didaskalia-2/">
+      ▶ Ξεκίνα!
+    </a>
+  </section>
+
+  <section class="card">
+    <div class="number">3</div>
+    <h2>
+      Δεύτερη Συζυγία - Ομαλά ρήματα σε -ERE
+    </h2>
+    <a class="button" href="didaskalia-3/">
+      ▶ Ξεκίνα!
+    </a>
+  </section>
+
+  <section class="card">
+    <div class="number">4</div>
+    <h2>
+      Τρίτη Συζυγία - Ομαλά ρήματα σε -IRE
+      (όπως το APRIRE)
+    </h2>
+    <a class="button" href="didaskalia-4/">
+      ▶ Ξεκίνα!
+    </a>
+  </section>
+
+  <section class="card">
+    <div class="number">5</div>
+    <h2>
+      Τρίτη Συζυγία - Ομαλά ρήματα σε -IRE
+      (όπως το FINIRE, με -isc-)
+    </h2>
+    <a class="button" href="didaskalia-5/">
+      ▶ Ξεκίνα!
+    </a>
+  </section>
+
+  <section class="card">
+    <div class="number">6</div>
+    <h2>
+      Επανάληψη και εμπέδωση των
+      ομαλών ρημάτων!
+    </h2>
+    <span class="coming-soon">
+      Σύντομα διαθέσιμη!
+    </span>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  Μαθαίνω με τη maestra Crissa!
+</footer>
+
+</body>
+</html>
