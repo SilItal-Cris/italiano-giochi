@@ -1,0 +1,65 @@
+<!doctype html><html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Parla con Maestra Crissa! – IRE</title><style>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#252044;background:#f6f3ff}*{box-sizing:border-box}body{margin:0}header{background:linear-gradient(115deg,#6641d8,#a35cda);color:white;text-align:center;padding:24px 12px}h1{margin:0;font-size:clamp(1.6rem,4vw,2.5rem)}header p{margin:7px 0 0}.wrap{max-width:1150px;margin:24px auto;padding:0 16px}.top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:16px}.pill{background:white;border-radius:30px;padding:10px 17px;font-weight:700}.card{background:white;border-radius:24px;box-shadow:0 12px 30px #27165315;padding:24px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:28px}video{width:100%;border-radius:16px;background:#191527;aspect-ratio:16/9;object-fit:contain}.videohelp{font-size:.87rem;color:#665f83}.right h2{color:#6841d6;margin:0 0 4px}.question{font-size:1.25rem;font-weight:700;margin:12px 0}.hint{background:#f0eaff;padding:12px 14px;border-radius:12px;margin-bottom:12px}.choices{display:grid;gap:10px}.choice{display:flex;align-items:center;gap:10px;text-align:left;border:2px solid #e4dcfa;background:#fff;border-radius:14px;padding:13px;cursor:pointer;color:#282044;width:100%;font:inherit}.choice.selected{border-color:#6841d6;background:#f2edff}.choice:disabled{cursor:default;opacity:.75}.choice strong{display:block}.choice small{display:block;color:#5f5a70;margin-top:3px}.controls{display:flex;flex-wrap:wrap;gap:9px;margin-top:17px}button.action{border:0;background:#6743d7;color:white;border-radius:12px;padding:12px 17px;font-size:1rem;font-weight:700;cursor:pointer}button.action:disabled{opacity:.4;cursor:not-allowed}.action.secondary{background:#e8e0ff;color:#4e2eb1}.action.recording{background:#d43464}.status{margin-top:12px;padding:12px 14px;background:#f5f2fd;border-radius:12px;min-height:48px}.recognized{margin-top:8px;color:#4f437a;font-size:.95rem;min-height:1.5em}.nav{display:flex;justify-content:space-between;gap:10px;margin-top:18px}.end{display:none;text-align:center;background:white;padding:52px 22px;border-radius:24px;box-shadow:0 12px 30px #27165315}.end h2{font-size:3rem;color:#6641d8}.foot{text-align:center;font-size:.85rem;color:#68617d;margin:22px 0 35px}input[type=radio]{accent-color:#6841d6;width:18px;height:18px;flex-shrink:0}@media(max-width:760px){.card{grid-template-columns:1fr;padding:16px}.top{flex-wrap:wrap}.wrap{margin:15px auto}}
+</style></head><body><header><h1>🎤 Parla con Maestra Crissa!</h1><p>Verbi in -IRE (come APRIRE) · Διάλεξε, μίλησε και έλεγξε!</p></header><main class="wrap"><div class="top"><span class="pill" id="progress">1 / 4</span><span class="pill">🌟 La pratica rende perfetti!</span></div><section class="card" id="game"><div><video id="video" controls playsinline preload="metadata"></video><p class="videohelp">▶ Δες πρώτα το βίντεο και άκουσε την ερώτηση της Maestra Crissa.</p></div><div class="right"><h2 id="verb"></h2><div class="question" id="question"></div><div class="hint">Διάλεξε μία απάντηση. Πες <strong>μόνο την ιταλική πρόταση</strong> και πάτησε «Controlla».</div><div id="choices" class="choices"></div><div class="controls"><button class="action" id="record">🎙️ Registra</button><button class="action secondary" id="check" disabled>✓ Controlla</button></div><div class="recognized" id="recognized" aria-live="polite"></div><div class="status" id="status" aria-live="polite">Διάλεξε μια πρόταση και πάτησε «Registra».</div><div class="nav"><button class="action secondary" id="prev">← Προηγούμενο</button><button class="action secondary" id="next" disabled>Επόμενο →</button></div></div></section><section class="end" id="end"><div style="font-size:4rem">🏆</div><h2>Perfetto!</h2><p>Hai completato tutte le attività! 🎉</p><p>Ολοκλήρωσες και τις τέσσερις ασκήσεις!</p><button class="action" id="restart">↻ Παίξε ξανά</button></section><p class="foot">Η αναγνώριση ομιλίας λειτουργεί καλύτερα σε Chrome ή Edge, σε ασφαλή σελίδα HTTPS. Η αυτόματη αναγνώριση δεν αποτελεί ακριβή αξιολόγηση προφοράς.</p></main>
+<script>
+const DATA=[{"verb": "APRIRE", "question": "Che cosa apri?", "video": "parla_ire_aprire_video_1.mp4", "choices": [{"it": "Apro una scatola.", "el": "Ανοίγω ένα κουτί."}, {"it": "Apro la porta.", "el": "Ανοίγω την πόρτα."}, {"it": "Apro la finestra.", "el": "Ανοίγω το παράθυρο."}]}, {"verb": "DORMIRE", "question": "Quando dormi?", "video": "parla_ire_aprire_video_2.mp4", "choices": [{"it": "Dormo di notte.", "el": "Κοιμάμαι τη νύχτα."}, {"it": "Dormo nel pomeriggio.", "el": "Κοιμάμαι το απόγευμα."}, {"it": "Dormo la mattina.", "el": "Κοιμάμαι το πρωί."}]}, {"verb": "PARTIRE", "question": "Quando parti?", "video": "parla_ire_aprire_video_3.mp4", "choices": [{"it": "Parto alle 8.", "el": "Αναχωρώ στις 8."}, {"it": "Parto alle 9.", "el": "Αναχωρώ στις 9."}, {"it": "Parto alle 2.", "el": "Αναχωρώ στις 2."}]}, {"verb": "SENTIRE", "question": "Che cosa senti?", "video": "parla_ire_aprire_video_4.mp4", "choices": [{"it": "Sento un uccellino.", "el": "Ακούω ένα πουλάκι."}, {"it": "Sento un rumore.", "el": "Ακούω έναν θόρυβο."}, {"it": "Sento un cane.", "el": "Ακούω έναν σκύλο."}]}];
+let idx=0,selected=-1,transcript='',recognition=null,phase='idle',attempted=false,session=0,recognitionEnded=false,stopRequested=false;
+const done=DATA.map(()=>false),el=id=>document.getElementById(id);
+const digitWords={'8':'otto','9':'nove','2':'due'};
+function norm(s){return s.toLocaleLowerCase('it-IT').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\b(8|9|2)\b/g,x=>digitWords[x]).replace(/[^a-z\s]/g,' ').replace(/\s+/g,' ').trim()}
+function similar(a,b){const x=norm(a),y=norm(b);if(!x||!y)return false;if(x===y)return true;const aW=x.split(' '),bW=y.split(' ');return aW.length===bW.length&&aW.every((w,i)=>{if(w===bW[i])return true;if(w.length<5||bW[i].length<5)return false;let dist=0;for(let j=0;j<Math.max(w.length,bW[i].length);j++)if(w[j]!==bW[i][j])dist++;return dist<=1})}
+function updateRecord(){let b=el('record');b.classList.toggle('recording',phase==='listening');b.textContent=phase==='listening'?'■ Stop':phase==='processing'?'⏳ Αναγνώριση…':'🎙️ Registra';b.disabled=phase==='processing'||done[idx];}
+function cancelRec(){session++;const old=recognition;recognition=null;phase='idle';recognitionEnded=false;stopRequested=false;if(old){old.onresult=old.onerror=old.onend=null;try{old.abort()}catch(e){}}updateRecord()}
+function clearAnswer(){transcript='';attempted=false;el('recognized').textContent='';el('check').disabled=true;}
+function load(){cancelRec();selected=-1;clearAnswer();let d=DATA[idx];el('progress').textContent=(idx+1)+' / '+DATA.length;el('verb').textContent=d.verb;el('question').textContent='Maestra Crissa: «'+d.question+'»';el('video').src=d.video;el('video').load();el('choices').innerHTML='';d.choices.forEach((c,i)=>{let b=document.createElement('button');b.className='choice';b.innerHTML='<input type="radio" name="answer" tabindex="-1"><span><strong></strong><small></small></span>';b.querySelector('strong').textContent=c.it;b.querySelector('small').textContent=c.el;b.onclick=()=>{if(done[idx])return;if(phase!=='idle')cancelRec();selected=i;clearAnswer();document.querySelectorAll('.choice').forEach((e,k)=>{e.classList.toggle('selected',k===i);e.querySelector('input').checked=k===i});el('status').textContent='Πάτησε «Registra» και πες: '+c.it};el('choices').append(b)});el('prev').disabled=idx===0;el('next').disabled=!done[idx];el('next').textContent=idx===DATA.length-1?'Ολοκλήρωση →':'Επόμενο →';updateRecord();el('status').textContent=done[idx]?'✓ Perfetto! Έχεις ολοκληρώσει αυτή την άσκηση.':'Διάλεξε μια πρόταση και πάτησε «Registra».';if(done[idx])el('choices').querySelectorAll('button').forEach(b=>b.disabled=true)}
+function finishRecording(){
+ phase='idle';updateRecord();el('check').disabled=!attempted;
+ if(attempted){el('status').textContent='Η πρόταση καταγράφηκε. Πάτησε «Controlla».'}
+ else {el('status').textContent='Δεν αναγνωρίστηκε πρόταση. Πάτησε «Registra» για νέα προσπάθεια.'}
+}
+el('record').onclick=()=>{
+ if(phase==='processing')return;
+ if(phase==='listening'){
+   stopRequested=true;
+   if(recognitionEnded){finishRecording();return}
+   phase='processing';updateRecord();el('status').textContent='Ολοκληρώνεται η αναγνώριση…';
+   try{recognition.stop()}catch(e){recognitionEnded=true;finishRecording()}
+   return;
+ }
+ if(selected<0){el('status').textContent='Επίλεξε πρώτα μία από τις τρεις προτάσεις.';return}
+ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SR){el('status').textContent='Η αναγνώριση ομιλίας δεν υποστηρίζεται εδώ. Άνοιξε το παιχνίδι σε Chrome ή Edge μέσω HTTPS.';return}
+ cancelRec();clearAnswer();recognitionEnded=false;stopRequested=false;
+ const token=++session;const r=new SR();recognition=r;
+ r.lang='it-IT';r.interimResults=false;r.continuous=true;r.maxAlternatives=5;r._alts=[];
+ r.onresult=e=>{
+   if(token!==session)return;
+   const alts=Array.from(e.results).flatMap(result=>Array.from(result).map(x=>x.transcript));
+   r._alts=alts;transcript=alts[0]||'';attempted=!!transcript;
+   el('recognized').textContent=attempted?'Αναγνωρίστηκε: '+transcript:'';
+   // Το Controlla παραμένει κλειδωμένο μέχρι ο μαθητής να πατήσει Stop.
+   el('check').disabled=true;
+ };
+ r.onerror=e=>{
+   if(token!==session)return;
+   r._error=e.error;
+   const msgs={'not-allowed':'Δεν επιτρέπεται η πρόσβαση στο μικρόφωνο. Έλεγξε την άδεια μικροφώνου.','no-speech':'Δεν αναγνωρίστηκε ομιλία. Δοκίμασε ξανά.','network':'Η υπηρεσία αναγνώρισης ομιλίας δεν είναι διαθέσιμη. Έλεγξε τη σύνδεσή σου.','audio-capture':'Δεν εντοπίστηκε μικρόφωνο.'};
+   el('status').textContent=msgs[e.error]||'Δεν ολοκληρώθηκε η αναγνώριση. Δοκίμασε ξανά.';
+ };
+ r.onend=()=>{
+   if(token!==session)return;
+   recognitionEnded=true;
+   if(stopRequested){finishRecording();return}
+   // Ο browser μπορεί να διακόψει μόνος του: κρατάμε το Stop ορατό.
+   if(r._error){phase='idle';updateRecord();el('check').disabled=true;return}
+   phase='listening';updateRecord();
+   el('status').textContent=attempted?'Η φράση αναγνωρίστηκε. Πάτησε «Stop» για να συνεχίσεις.':'Πάτησε «Stop» για να ολοκληρώσεις την προσπάθεια.';
+ };
+ try{r.start();phase='listening';updateRecord();el('status').textContent='Μίλησε στα ιταλικά και έπειτα πάτησε «Stop».'}
+ catch(e){phase='idle';updateRecord();el('status').textContent='Δεν ξεκίνησε το μικρόφωνο. Δοκίμασε ξανά.'}
+};
+el('check').onclick=()=>{if(selected<0||!attempted||phase!=='idle')return;const expected=DATA[idx].choices[selected].it;const alts=recognition?recognition._alts||[transcript]:[transcript];if(alts.some(t=>similar(t,expected))){done[idx]=true;el('status').textContent='🌟 Perfetto! Μπορείς να συνεχίσεις.';el('next').disabled=false;el('check').disabled=true;updateRecord();el('choices').querySelectorAll('button').forEach(b=>b.disabled=true)}else{el('status').textContent='Δοκίμασε ξανά! Πες: «'+expected+'»';clearAnswer()}};
+el('prev').onclick=()=>{if(idx>0){idx--;load()}};
+el('next').onclick=()=>{if(!done[idx])return;if(idx===DATA.length-1){cancelRec();el('video').pause();el('game').style.display='none';el('end').style.display='block';el('progress').textContent='4 / 4 ✓'}else{idx++;load()}};
+el('restart').onclick=()=>{done.fill(false);idx=0;el('game').style.display='grid';el('end').style.display='none';load()};load();
+</script></body></html>
