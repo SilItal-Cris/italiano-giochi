@@ -3,7 +3,9 @@
 <html lang="el">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
   <title>Μαθαίνω με τη maestra Crissa!</title>
 
   <style>
@@ -14,25 +16,39 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #fff9f2;
-      color: #333;
+      color: #493b59;
       text-align: center;
+      background: linear-gradient(
+        135deg,
+        #fff3fa,
+        #f2eaff,
+        #e9f8ff
+      );
+      min-height: 100vh;
     }
 
     header {
-      padding: 35px 20px 30px;
-      background: linear-gradient(135deg, #e8f6e8, #fff0df);
+      padding: 40px 20px 35px;
+      background: linear-gradient(
+        120deg,
+        #f8dced,
+        #e8ddff,
+        #d9f1ff,
+        #fff0bd
+      );
     }
 
     h1 {
-      color: #287747;
+      color: #8646a0;
       font-size: clamp(28px, 5vw, 44px);
       margin: 0 0 15px;
+      text-shadow: 1px 2px 3px #ffffff;
     }
 
     .intro {
       font-size: 19px;
       line-height: 1.6;
+      color: #614b79;
     }
 
     .hero {
@@ -41,19 +57,20 @@
       max-width: 850px;
       height: auto;
       margin: 25px auto 0;
-      border-radius: 20px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+      border-radius: 24px;
+      border: 6px solid white;
+      box-shadow: 0 8px 25px #a47ca044;
     }
 
     main {
       max-width: 1150px;
       margin: auto;
-      padding: 35px 20px 50px;
+      padding: 40px 20px 55px;
     }
 
     .section-title {
       font-size: 29px;
-      color: #287747;
+      color: #8646a0;
     }
 
     .grid {
@@ -65,70 +82,77 @@
     }
 
     .card {
-      background: white;
+      background: #ffffffee;
       padding: 28px 22px;
-      border-radius: 20px;
-      border-top: 7px solid #38945c;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.09);
+      border-radius: 24px;
+      border-top: 8px solid #e7b8d5;
+      box-shadow: 0 6px 20px #b29ab533;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px #b29ab555;
     }
 
-    .card:nth-child(3n+2) {
-      border-top-color: #e85b51;
+    .card:nth-child(4n+2) {
+      border-top-color: #c8b1ef;
     }
 
-    .card:nth-child(3n) {
-      border-top-color: #e7ad35;
+    .card:nth-child(4n+3) {
+      border-top-color: #a5ddec;
+    }
+
+    .card:nth-child(4n) {
+      border-top-color: #f4d37c;
     }
 
     .card h2 {
       font-size: 21px;
       line-height: 1.5;
       margin: 10px 0 20px;
+      color: #493b59;
     }
 
     .number {
-      font-size: 34px;
+      font-size: 36px;
       font-weight: bold;
-      color: #287747;
+      color: #9256aa;
     }
 
     .button {
       display: inline-block;
       padding: 14px 25px;
-      border-radius: 12px;
-      background: #287747;
+      border-radius: 14px;
+      background: #8651a5;
       color: white;
       font-size: 17px;
       font-weight: bold;
       text-decoration: none;
+      transition: background 0.2s;
     }
 
     .button:hover,
     .button:focus-visible {
-      background: #19532f;
+      background: #653783;
     }
 
     .coming-soon {
-      background: #eeeeee;
-      color: #666;
+      background: #eee5f5;
+      color: #695878;
       padding: 14px 25px;
-      border-radius: 12px;
+      border-radius: 14px;
       font-weight: bold;
     }
 
     footer {
       padding: 25px;
-      background: #e8f6e8;
-      color: #287747;
+      background: #eadcf7;
+      color: #754a91;
       font-weight: bold;
     }
 
@@ -165,7 +189,9 @@
   </header>
 
   <main>
-    <h2 class="section-title">Οι διδασκαλίες μας</h2>
+    <h2 class="section-title">
+      Οι διδασκαλίες μας
+    </h2>
 
     <div class="grid">
 
@@ -237,7 +263,7 @@
   </main>
 
   <footer>
-    Μαθαίνω με τη maestra Crissa!
+    Μαθαίνω με τη maestra Crissa! 🌸
   </footer>
 
 </body>
