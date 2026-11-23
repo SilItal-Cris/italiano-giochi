@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>6η Διδασκαλία | Ripasso dei verbi regolari</title>
+
   <style>
     * { box-sizing: border-box; }
 
@@ -38,7 +39,38 @@
       padding: 0 20px;
     }
 
-    h2 { color: #6542db; }
+    h2 {
+      color: #6542db;
+    }
+
+    .video-card {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 24px #30205a12;
+    }
+
+    .video-card p {
+      line-height: 1.6;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #17142d;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
 
     .grid {
       display: grid;
@@ -53,7 +85,9 @@
       box-shadow: 0 8px 24px #30205a12;
     }
 
-    .card h3 { margin-top: 0; }
+    .card h3 {
+      margin-top: 0;
+    }
 
     .card p {
       line-height: 1.6;
@@ -70,15 +104,28 @@
       font-weight: bold;
     }
 
-    .button:hover { background: #5030ba; }
+    .button:hover {
+      background: #5030ba;
+    }
 
     @media (max-width: 700px) {
-      .grid { grid-template-columns: 1fr; }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 30px;
+      }
+
+      .video-card {
+        padding: 18px;
+      }
     }
   </style>
 </head>
 
 <body>
+
   <header>
     <h1>🇮🇹 Ripasso dei verbi regolari</h1>
     <p>6η Διδασκαλία – Επανάληψη και εμπέδωση</p>
@@ -86,37 +133,70 @@
   </header>
 
   <main>
+
+    <h2>🎬 Το βιντεομάθημά μας!</h2>
+
+    <section class="video-card">
+      <h3>👩‍🏫 Μαθαίνουμε με τη Maestra Crissa!</h3>
+
+      <p>
+        Θυμόμαστε την κλίση των ιταλικών ρημάτων
+        σε -ARE, -ERE και -IRE, μαζί με τις
+        ιδιαιτερότητές τους!
+      </p>
+
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/BKLYVbYM6wI"
+          title="6η Διδασκαλία - Ripasso dei verbi regolari"
+          allow="accelerometer; autoplay; clipboard-write;
+                 encrypted-media; gyroscope; picture-in-picture;
+                 web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
     <h2>🎮 Οι δύο μεγάλες προκλήσεις μας!</h2>
 
     <div class="grid">
 
       <div class="card">
         <h3>🐍 Il serpente dei verbi regolari</h3>
+
         <p>
           Παίξε με το φιδάκι και δοκίμασε τις γνώσεις σου
           στα ιταλικά ρήματα!
         </p>
+
         <a class="button"
            href="https://a1it.my.canva.site/il-serpente-dei-verbi-regolari"
-           target="_blank" rel="noopener noreferrer">
+           target="_blank"
+           rel="noopener noreferrer">
           ▶ Παίξε τώρα
         </a>
       </div>
 
       <div class="card">
         <h3>🏛️ Escape Room: Il Colosseo</h3>
+
         <p>
           Μπες στο Κολοσσαίο, λύσε γρίφους και ολοκλήρωσε
           την αποστολή σου!
         </p>
+
         <a class="button"
            href="https://capable-panda-e442eb.netlify.app/"
-           target="_blank" rel="noopener noreferrer">
+           target="_blank"
+           rel="noopener noreferrer">
           ▶ Ξεκίνα την αποστολή
         </a>
       </div>
 
     </div>
+
   </main>
+
 </body>
 </html>
