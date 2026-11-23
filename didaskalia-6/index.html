@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Ripasso dei verbi regolari</title>
+
+  <title> Επανάληψη και εμπέδωση </title>
 
   <style>
     * { box-sizing: border-box; }
@@ -20,56 +21,59 @@
       background: linear-gradient(120deg, #6542db, #b458ce);
       color: white;
       text-align: center;
-      padding: 55px 20px;
+      padding: 40px 20px;
     }
 
     header h1 {
-      font-size: 38px;
-      margin: 0 0 15px;
+      font-size: 34px;
+      margin: 0 0 12px;
     }
 
     header p {
-      font-size: 18px;
+      font-size: 16px;
       margin: 8px 0;
     }
 
     main {
       max-width: 900px;
-      margin: 40px auto;
+      margin: 30px auto;
       padding: 0 20px;
     }
 
     h2 {
       color: #6542db;
+      font-size: 22px;
     }
 
-    .video-card {
-      background: white;
-      border-radius: 24px;
-      padding: 30px;
-      margin-bottom: 40px;
-      box-shadow: 0 8px 24px #30205a12;
+    .video-section {
+      text-align: center;
+      margin-bottom: 35px;
     }
 
-    .video-card p {
-      line-height: 1.6;
+    .video-section h2 {
+      margin-bottom: 18px;
     }
 
     .video-container {
-      position: relative;
       width: 100%;
+      max-width: 650px;
       aspect-ratio: 16 / 9;
+      margin: 0 auto;
       overflow: hidden;
       border-radius: 16px;
       background: #17142d;
+      box-shadow: 0 8px 24px #30205a20;
     }
 
     .video-container iframe {
-      position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
       border: 0;
+      display: block;
+    }
+
+    .games-title {
+      margin-bottom: 18px;
     }
 
     .grid {
@@ -80,8 +84,8 @@
 
     .card {
       background: white;
-      border-radius: 24px;
-      padding: 30px;
+      border-radius: 20px;
+      padding: 25px;
       box-shadow: 0 8px 24px #30205a12;
     }
 
@@ -99,8 +103,8 @@
       background: #6542db;
       color: white;
       text-decoration: none;
-      padding: 16px 24px;
-      border-radius: 14px;
+      padding: 14px 22px;
+      border-radius: 12px;
       font-weight: bold;
     }
 
@@ -114,11 +118,11 @@
       }
 
       header h1 {
-        font-size: 30px;
+        font-size: 28px;
       }
 
-      .video-card {
-        padding: 18px;
+      .video-container {
+        max-width: 100%;
       }
     }
   </style>
@@ -127,74 +131,71 @@
 <body>
 
   <header>
-    <h1> Ripasso dei verbi regolari</h1>
-    <p> Επανάληψη και εμπέδωση</p>
-    <p> Verbi in -ARE, -ERE e -IRE</p>
+    <h1> Επανάληψη των ομαλών ρημάτων στα ιταλικά </h1>
+    <p>Τα ρήματα σε -ARE, -ERE e -IRE</p>
   </header>
 
   <main>
 
-    <h2>🎬 Το βιντεομάθημά μας!</h2>
+    <!-- ΒΙΝΤΕΟ ΣΤΟ ΚΕΝΤΡΟ -->
+    <section class="video-section">
 
-    <section class="video-card">
-      <h3>👩‍🏫 Μαθαίνουμε με τη Maestra Crissa!</h3>
-
-      <p>
-        Θυμόμαστε την κλίση των ιταλικών ρημάτων
-        σε -ARE, -ERE και -IRE, μαζί με τις
-        ιδιαιτερότητές τους!
-      </p>
+      <h2>🎬 Δες το βιντεομάθημά μας!</h2>
 
       <div class="video-container">
         <iframe
           src="https://www.youtube.com/embed/BKLYVbYM6wI"
           title="6η Διδασκαλία - Ripasso dei verbi regolari"
-          allow="accelerometer; autoplay; clipboard-write;
-                 encrypted-media; gyroscope; picture-in-picture;
-                 web-share"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen>
         </iframe>
       </div>
+
     </section>
 
-    <h2>🎮 Οι δύο μεγάλες προκλήσεις μας!</h2>
+    <!-- ΠΑΙΧΝΙΔΙΑ -->
+    <section>
 
-    <div class="grid">
+      <h2 class="games-title">🎮 Μαθαίνω παίζοντας</h2>
 
-      <div class="card">
-        <h3> Il serpente dei verbi regolari</h3>
+      <div class="grid">
 
-        <p>
-          Παίξε με το φιδάκι και δοκίμασε τις γνώσεις σου
-          στα ιταλικά ρήματα!
-        </p>
+        <div class="card">
+          <h3> Il serpente dei verbi regolari</h3>
 
-        <a class="button"
-           href="https://a1it.my.canva.site/il-serpente-dei-verbi-regolari"
-           target="_blank"
-           rel="noopener noreferrer">
-          ▶ Παίξε τώρα
-        </a>
+          <p>
+            Παίξε με το φιδάκι και δοκίμασε
+            τις γνώσεις σου στα ιταλικά ρήματα!
+          </p>
+
+          <a class="button"
+             href="https://a1it.my.canva.site/il-serpente-dei-verbi-regolari"
+             target="_blank"
+             rel="noopener noreferrer">
+            ▶ Παίξε τώρα
+          </a>
+        </div>
+
+        <div class="card">
+          <h3> Escape Room: Il Colosseo</h3>
+
+          <p>
+            Μπες στο Κολοσσαίο, λύσε γρίφους
+            και ολοκλήρωσε την αποστολή σου!
+          </p>
+
+          <a class="button"
+             href="https://capable-panda-e442eb.netlify.app/"
+             target="_blank"
+             rel="noopener noreferrer">
+            ▶ Ξεκίνα την αποστολή
+          </a>
+        </div>
+
       </div>
 
-      <div class="card">
-        <h3>Escape Room: Il Colosseo</h3>
-
-        <p>
-          Μπες στο Κολοσσαίο, λύσε γρίφους και ολοκλήρωσε
-          την αποστολή σου!
-        </p>
-
-        <a class="button"
-           href="https://capable-panda-e442eb.netlify.app/"
-           target="_blank"
-           rel="noopener noreferrer">
-          ▶ Ξεκίνα την αποστολή
-        </a>
-      </div>
-
-    </div>
+    </section>
 
   </main>
 
